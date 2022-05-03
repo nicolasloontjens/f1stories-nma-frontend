@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import be.howest.nicolas.loontjens.f1stories.R
+import be.howest.nicolas.loontjens.f1stories.databinding.FragmentStartBinding
+import be.howest.nicolas.loontjens.f1stories.databinding.RegisterFragmentBinding
 
 class RegisterFragment : Fragment() {
+
+    private var binding: RegisterFragmentBinding? = null
 
     companion object {
         fun newInstance() = RegisterFragment()
@@ -20,13 +24,22 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.register_fragment, container, false)
+        binding = RegisterFragmentBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding?.apply{
+            RegisterButton.setOnClickListener{
+                register()
+            }
+        }
+    }
+
+    private fun register(){
+
     }
 
 }

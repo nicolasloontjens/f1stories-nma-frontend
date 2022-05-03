@@ -26,7 +26,6 @@ class StartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = "F1 Stories"
         binding?.apply{
             Register.setOnClickListener {
                 findNavController().navigate(R.id.action_startFragment_to_registerFragment)
