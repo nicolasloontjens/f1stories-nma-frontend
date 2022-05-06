@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBindings
 import be.howest.nicolas.loontjens.f1stories.R
 import be.howest.nicolas.loontjens.f1stories.database.UserApplication
@@ -34,7 +35,6 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
         binding = RegisterFragmentBinding.inflate(inflater, container, false)
         return binding!!.root
     }
@@ -44,7 +44,9 @@ class RegisterFragment : Fragment() {
 
         binding?.apply{
             RegisterButton.setOnClickListener{
-                viewModel.register(editTextUsername.text.toString(),editTextTextPassword.text.toString())
+                if(viewModel.register(editTextUsername.text.toString(),editTextTextPassword.text.toString())){
+                    findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
+                }
             }
         }
     }

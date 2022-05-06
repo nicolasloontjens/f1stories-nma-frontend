@@ -18,7 +18,8 @@ class RegisterViewModel(private val repository: UserRepository) : ViewModel() {
 
     }
 
-    fun register(username: String, password: String){
+    fun register(username: String, password: String): Boolean{
+        var success = false;
         Thread{
             repository.nuke()
         }.start()
@@ -29,14 +30,14 @@ class RegisterViewModel(private val repository: UserRepository) : ViewModel() {
                 val uid = jwt.getClaim("uid").asInt()
                 uid?.let { UserAuthItem(0, it,res.token, true) }?.let { repository.insert(it) }
                 Thread{
-                    val test = repository.getUid()
-                    println(test)
+                    success = repository.isLoggedIn()
                 }.start()
             }
-        }catch(e:Exception) {
+        }catch(e: Exception) {
 
         }
-
+        Thread.sleep(200)
+        return success
     }
 }
 

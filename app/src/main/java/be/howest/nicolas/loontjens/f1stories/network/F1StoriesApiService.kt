@@ -26,6 +26,9 @@ interface F1StoriesApiService{
     @POST("users/register")
     suspend fun register(@Body user:UserAuth):UserToken
 
+    @POST("users/login")
+    suspend fun login(@Body user:UserAuth):UserToken
+
     @GET("races")
     suspend fun getRaces():List<Race>
 }
