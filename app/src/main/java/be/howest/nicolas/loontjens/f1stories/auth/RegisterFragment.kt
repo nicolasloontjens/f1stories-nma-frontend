@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBindings
 import be.howest.nicolas.loontjens.f1stories.R
+import be.howest.nicolas.loontjens.f1stories.database.UserApplication
 import be.howest.nicolas.loontjens.f1stories.databinding.FragmentStartBinding
 import be.howest.nicolas.loontjens.f1stories.databinding.RegisterFragmentBinding
 import be.howest.nicolas.loontjens.f1stories.network.F1StoriesApi
@@ -22,13 +24,17 @@ class RegisterFragment : Fragment() {
         fun newInstance() = RegisterFragment()
     }
 
-    private lateinit var viewModel: RegisterViewModel
+    private val viewModel: RegisterViewModel by activityViewModels{
+        CreateUserViewModelFactory(
+            (activity?.application as UserApplication).repository
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
+        //viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
         binding = RegisterFragmentBinding.inflate(inflater, container, false)
         return binding!!.root
     }

@@ -7,8 +7,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "UserAuth")
 data class UserAuthItem(
-    @PrimaryKey(autoGenerate = true)val id:Int=0,
+    @PrimaryKey(autoGenerate = true) val id:Int=0,
     val uid: Int=0,
-    val token: String="",
+    val token: String = "",
     val loggedin: Boolean=false
 ):Parcelable
