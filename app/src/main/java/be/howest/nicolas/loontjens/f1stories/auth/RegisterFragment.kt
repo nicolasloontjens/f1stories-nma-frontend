@@ -44,9 +44,9 @@ class RegisterFragment : Fragment() {
 
         binding?.apply{
             RegisterButton.setOnClickListener{
-                if(viewModel.register(editTextUsername.text.toString(),editTextTextPassword.text.toString())){
+                    viewModel.register(editTextUsername.text.toString(),editTextTextPassword.text.toString())
                     findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
-                }
+
             }
         }
     }

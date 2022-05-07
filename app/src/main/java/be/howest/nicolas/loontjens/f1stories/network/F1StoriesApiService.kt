@@ -1,10 +1,9 @@
 package be.howest.nicolas.loontjens.f1stories.network
 
-import be.howest.nicolas.loontjens.f1stories.network.data.Race
-import be.howest.nicolas.loontjens.f1stories.network.data.UserAuth
-import be.howest.nicolas.loontjens.f1stories.network.data.UserToken
+import be.howest.nicolas.loontjens.f1stories.network.data.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.Body
@@ -31,6 +30,9 @@ interface F1StoriesApiService{
 
     @GET("races")
     suspend fun getRaces():List<Race>
+
+    @GET("stories")
+    suspend fun getStories():List<Story>
 }
 
 object F1StoriesApi {

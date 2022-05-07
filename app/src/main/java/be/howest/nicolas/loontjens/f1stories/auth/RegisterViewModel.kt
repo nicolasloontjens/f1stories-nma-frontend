@@ -36,7 +36,7 @@ class RegisterViewModel(private val repository: UserRepository) : ViewModel() {
         }catch(e: Exception) {
 
         }
-        Thread.sleep(200)
+        Thread.sleep(1000)
         return success
     }
 }
