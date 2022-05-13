@@ -21,29 +21,33 @@ class HomeFragment : Fragment() {
 
     lateinit var viewModel: HomeViewModel
 
+    private lateinit var thebinding: HomeFragmentBinding;
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        viewModel.viewModelScope.launch {
-            val races = F1StoriesApi.retrofitService.getRaces()
-            println(races)
-
-            val stories = F1StoriesApi.retrofitService.getStories()
-            println(stories)
-        }
 
         val binding = HomeFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this.viewLifecycleOwner
         binding.viewModel = viewModel
         binding.storiesList.adapter = HomeStoryAdapter()
         binding.storiesList.layoutManager = LinearLayoutManager(this.context)
-        return inflater.inflate(R.layout.home_fragment, container, false)
+        thebinding = binding;
+        return binding.root
+        //return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        thebinding.apply {
+            burger.setOnClickListener{
+
+            }
+        }
 
     }
 

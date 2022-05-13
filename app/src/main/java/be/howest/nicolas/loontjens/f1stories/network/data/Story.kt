@@ -8,5 +8,8 @@ data class Story(
     val userid: Int,
     val score: Int,
     val date: String,
-    val username: String
+    val username: String,
+    val image1: String? = null,
+    val image2: String? = null,
+    val image3: String? = null
 )

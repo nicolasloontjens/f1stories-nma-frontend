@@ -42,5 +42,13 @@
         android:id="@+id/homeFragment"
         android:name="be.howest.nicolas.loontjens.f1stories.stories.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/home_fragment" />
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_overviewFragment2"
+            app:destination="@id/overviewFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/overviewFragment2"
+        android:name="be.howest.nicolas.loontjens.f1stories.OverviewFragment"
+        android:label="OverviewFragment" />
 </navigation>
