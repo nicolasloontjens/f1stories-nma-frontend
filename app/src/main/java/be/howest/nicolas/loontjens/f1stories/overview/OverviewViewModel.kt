@@ -1,9 +1,7 @@
-package be.howest.nicolas.loontjens.f1stories
+package be.howest.nicolas.loontjens.f1stories.overview
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
-import be.howest.nicolas.loontjens.f1stories.auth.LoginViewModel
 import be.howest.nicolas.loontjens.f1stories.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

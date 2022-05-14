@@ -49,6 +49,6 @@
     </fragment>
     <fragment
         android:id="@+id/overviewFragment2"
-        android:name="be.howest.nicolas.loontjens.f1stories.OverviewFragment"
+        android:name="be.howest.nicolas.loontjens.f1stories.overview.OverviewFragment"
         android:label="OverviewFragment" />
 </navigation>
