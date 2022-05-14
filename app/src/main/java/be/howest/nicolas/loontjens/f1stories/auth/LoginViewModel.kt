@@ -32,7 +32,6 @@ class LoginViewModel(private val repository: UserRepository) : ViewModel() {
 
         }
         Thread.sleep(1000)
-        println(success)
         return success
     }
 }

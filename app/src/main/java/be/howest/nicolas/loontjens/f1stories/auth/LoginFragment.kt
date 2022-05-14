@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import be.howest.nicolas.loontjens.f1stories.R
 import be.howest.nicolas.loontjens.f1stories.database.UserApplication
 import be.howest.nicolas.loontjens.f1stories.databinding.LoginFragmentBinding
-import be.howest.nicolas.loontjens.f1stories.databinding.RegisterFragmentBinding
 
 class LoginFragment : Fragment() {
 

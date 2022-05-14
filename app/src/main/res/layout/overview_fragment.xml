@@ -13,7 +13,7 @@
         android:background="@color/f1red">
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/gotoprofile"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/viewprofile"
@@ -22,10 +22,10 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.626" />
+            app:layout_constraintVertical_bias="0.612" />
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/gotopost"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/createpost"
@@ -37,7 +37,7 @@
             app:layout_constraintVertical_bias="0.026" />
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/gotorace"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginTop="43dp"
@@ -46,7 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView11"
+            app:layout_constraintTop_toBottomOf="@+id/gotopost"
             app:layout_constraintVertical_bias="0.046" />
 
         <TextView
@@ -59,7 +59,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+            app:layout_constraintTop_toBottomOf="@+id/gotopost" />
 
         <TextView
             android:id="@+id/textView2"
@@ -71,7 +71,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+            app:layout_constraintTop_toBottomOf="@+id/gotorace" />
 
         <TextView
             android:id="@+id/textView3"
@@ -83,10 +83,10 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+            app:layout_constraintTop_toBottomOf="@+id/gotoprofile" />
 
         <ImageView
-            android:id="@+id/imageView13"
+            android:id="@+id/gotologout"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/back"
@@ -95,7 +95,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.916" />
+            app:layout_constraintVertical_bias="0.895" />
 
         <TextView
             android:id="@+id/textView4"
@@ -107,7 +107,6 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+            app:layout_constraintTop_toBottomOf="@+id/gotologout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

@@ -6,12 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import be.howest.nicolas.loontjens.f1stories.R
 import be.howest.nicolas.loontjens.f1stories.databinding.HomeFragmentBinding
-import be.howest.nicolas.loontjens.f1stories.network.F1StoriesApi
-import kotlinx.coroutines.launch
+
 
 class HomeFragment : Fragment() {
 
@@ -30,7 +29,7 @@ class HomeFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        val binding = HomeFragmentBinding.inflate(inflater)
+         val binding = HomeFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this.viewLifecycleOwner
         binding.viewModel = viewModel
         binding.storiesList.adapter = HomeStoryAdapter()
@@ -42,10 +41,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         thebinding.apply {
             burger.setOnClickListener{
-
+                findNavController().navigate(R.id.action_homeFragment_to_overviewFragment2)
             }
         }
 
