@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="be.howest.nicolas.loontjens.f1stories">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".database.UserApplication"
         android:allowBackup="true"
@@ -14,6 +16,9 @@
         android:theme="@style/Theme.F1stories"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity
+            android:name=".addrace.ScanCodeActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

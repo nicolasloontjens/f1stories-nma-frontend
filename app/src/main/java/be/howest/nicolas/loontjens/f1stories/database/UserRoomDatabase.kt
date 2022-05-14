@@ -12,7 +12,7 @@ abstract class UserRoomDatabase: RoomDatabase() {
 
     companion object {
         @Volatile
-        private var INSTANCE: UserRoomDatabase? = null
+        var INSTANCE: UserRoomDatabase? = null
         fun getDatabase(context: Context): UserRoomDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
