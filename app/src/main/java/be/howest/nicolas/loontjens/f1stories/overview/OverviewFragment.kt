@@ -46,7 +46,9 @@ class OverviewFragment : Fragment() {
                 val intent = Intent (activity, ScanCodeActivity::class.java)
                 activity?.startActivity(intent)
             }
-            gotopost.setOnClickListener{}
+            gotopost.setOnClickListener{
+                findNavController().navigate(R.id.action_overviewFragment2_to_addPostFragment)
+            }
             gotoprofile.setOnClickListener{}
         }
     }

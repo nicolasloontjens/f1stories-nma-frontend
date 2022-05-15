@@ -3,6 +3,8 @@ package be.howest.nicolas.loontjens.f1stories.network
 import be.howest.nicolas.loontjens.f1stories.network.data.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
@@ -33,6 +35,18 @@ interface F1StoriesApiService{
 
     @POST("users/{id}/race")
     suspend fun addRace(@Path("id") id: Int, @Body race: AddRace, @Header("Authorization") auth: String)
+
+    /*
+    @Multipart
+    @POST("stories")
+    suspend fun addStory(@Part("content") content: RequestBody, @Part("country") country: RequestBody,
+                         @Part("raceid") raceid: Int,@Part img : MultipartBody.Part, @Header("Authorization") auth: String)
+     */
+
+    @Multipart
+    @POST("stories")
+    suspend fun addStory(@Part("content") content: RequestBody, @Part("country") country: RequestBody,
+                         @Part("raceid") raceid: Int,@Header("Authorization") auth: String)
 }
 
 object F1StoriesApi {

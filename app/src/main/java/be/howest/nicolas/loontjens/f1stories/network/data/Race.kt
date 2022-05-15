@@ -7,4 +7,7 @@ data class Race (
     val raceid: Int,
     val title: String,
     val date: String
-)
+){
+    fun getId(): Int = raceid
+    override fun toString(): String = title
+}
