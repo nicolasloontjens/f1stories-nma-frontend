@@ -36,6 +36,9 @@ interface F1StoriesApiService{
     @POST("users/{id}/race")
     suspend fun addRace(@Path("id") id: Int, @Body race: AddRace, @Header("Authorization") auth: String)
 
+    @POST("stories/{id}/interact")
+    suspend fun likeStory(@Path("id") id: Int, @Body interact: AddInteraction, @Header("Authorization") auth:String)
+
     /*
     @Multipart
     @POST("stories")

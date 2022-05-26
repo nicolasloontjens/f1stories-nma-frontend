@@ -1,15 +1,24 @@
 package be.howest.nicolas.loontjens.f1stories.stories
 
+import android.content.Intent
+import android.graphics.drawable.Drawable
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
+import androidx.core.view.children
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import be.howest.nicolas.loontjens.f1stories.R
 import be.howest.nicolas.loontjens.f1stories.databinding.HomeFragmentBinding
+import be.howest.nicolas.loontjens.f1stories.network.data.Story
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class HomeFragment : Fragment() {
@@ -32,7 +41,25 @@ class HomeFragment : Fragment() {
          val binding = HomeFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this.viewLifecycleOwner
         binding.viewModel = viewModel
-        binding.storiesList.adapter = HomeStoryAdapter()
+        binding.storiesList.adapter = HomeStoryAdapter(StoryListener { story ->
+            viewModel.onStoryClicked(story)
+            viewModel.likeStory(story)
+            //i cant modify the score value, so i refresh the page
+            findNavController().navigate(R.id.homeFragment)
+        },
+        StoryListener { story ->
+            viewModel.onStoryClicked(story)
+            //navigate to comments
+            println("comments clicked")
+        },
+        StoryListener { story ->
+            viewModel.onStoryClicked(story)
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT, "I'm loving these posts on the F1 Stories app, check it out!")
+            intent.type="text/plain"
+            startActivity(Intent.createChooser(intent,"Share to:"))
+        })
         binding.storiesList.layoutManager = LinearLayoutManager(this.context)
         thebinding = binding;
         return binding.root
@@ -48,5 +75,4 @@ class HomeFragment : Fragment() {
         }
 
     }
-
 }

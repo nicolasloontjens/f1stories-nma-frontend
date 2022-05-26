@@ -6,7 +6,7 @@ data class Story(
     val country: String,
     val raceid: Int,
     val userid: Int,
-    val score: Int,
+    var score: Int,
     val date: String,
     val username: String,
     val image1: String? = null,

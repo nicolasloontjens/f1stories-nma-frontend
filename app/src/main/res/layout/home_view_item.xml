@@ -7,6 +7,15 @@
         <variable
             name="story"
             type="be.howest.nicolas.loontjens.f1stories.network.data.Story" />
+        <variable
+            name="clickListener1"
+            type="be.howest.nicolas.loontjens.f1stories.stories.StoryListener" />
+        <variable
+            name="clickListener2"
+            type="be.howest.nicolas.loontjens.f1stories.stories.StoryListener" />
+        <variable
+            name="clickListener3"
+            type="be.howest.nicolas.loontjens.f1stories.stories.StoryListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -161,7 +170,8 @@
                 app:layout_constraintHorizontal_bias="0.124"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/notliked" />
+                app:srcCompat="@drawable/notliked"
+                android:onClick="@{() ->clickListener1.onClick(story)}"/>
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -172,7 +182,8 @@
                 app:layout_constraintHorizontal_bias="0.895"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/share" />
+                app:srcCompat="@drawable/share"
+                android:onClick="@{() ->clickListener3.onClick(story)}"/>
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -186,7 +197,8 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.529"
-                app:srcCompat="@drawable/comments" />
+                app:srcCompat="@drawable/comments"
+                android:onClick="@{() ->clickListener2.onClick(story)}"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
