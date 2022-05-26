@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import be.howest.nicolas.loontjens.f1stories.R
@@ -49,11 +50,14 @@ class HomeFragment : Fragment() {
         },
         StoryListener { story ->
             viewModel.onStoryClicked(story)
-            //navigate to comments
+            //navigate to comment
             println("comments clicked")
+            val action: NavDirections = HomeFragmentDirections.actionHomeFragmentToCommentFragment(story.storyid)
+            findNavController().navigate(action)
         },
         StoryListener { story ->
             viewModel.onStoryClicked(story)
+            //launch an intent to share to different apps
             val intent = Intent()
             intent.action = Intent.ACTION_SEND
             intent.putExtra(Intent.EXTRA_TEXT, "I'm loving these posts on the F1 Stories app, check it out!")

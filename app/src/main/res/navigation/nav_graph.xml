@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_homeFragment_to_overviewFragment2"
             app:destination="@id/overviewFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_commentFragment"
+            app:destination="@id/commentFragment" />
     </fragment>
     <fragment
         android:id="@+id/overviewFragment2"
@@ -59,4 +62,12 @@
         android:id="@+id/addPostFragment"
         android:name="be.howest.nicolas.loontjens.f1stories.addpost.AddPostFragment"
         android:label="AddPostFragment" />
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="be.howest.nicolas.loontjens.f1stories.comments.CommentFragment"
+        android:label="CommentFragment" >
+        <argument
+            android:name="storyId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

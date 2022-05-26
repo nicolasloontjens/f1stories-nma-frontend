@@ -39,6 +39,9 @@ interface F1StoriesApiService{
     @POST("stories/{id}/interact")
     suspend fun likeStory(@Path("id") id: Int, @Body interact: AddInteraction, @Header("Authorization") auth:String)
 
+    @GET("stories/{id}/comments")
+    suspend fun getComments(@Path("id") id: Int):List<Comment>
+
     /*
     @Multipart
     @POST("stories")
