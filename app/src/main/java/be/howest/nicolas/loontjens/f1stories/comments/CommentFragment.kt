@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import be.howest.nicolas.loontjens.f1stories.R
 import be.howest.nicolas.loontjens.f1stories.databinding.CommentFragmentBinding
 import be.howest.nicolas.loontjens.f1stories.databinding.CommentFragmentBindingImpl
+import be.howest.nicolas.loontjens.f1stories.stories.HomeFragmentDirections
 
 class CommentFragment : Fragment() {
 
@@ -32,6 +35,15 @@ class CommentFragment : Fragment() {
         binding.listcomments.adapter = CommentsAdapter()
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.addComment.setOnClickListener{
+            viewModel.goToAddComments(findNavController())
+        }
+    }
+
+
 
 
 

@@ -69,5 +69,20 @@
         <argument
             android:name="storyId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_commentFragment_to_addComment2"
+            app:destination="@id/addComment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addComment2"
+        android:name="be.howest.nicolas.loontjens.f1stories.comments.AddComment"
+        android:label="add_comment_fragment"
+        tools:layout="@layout/add_comment_fragment" >
+        <argument
+            android:name="storyId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addComment2_to_commentFragment"
+            app:destination="@id/commentFragment" />
     </fragment>
 </navigation>

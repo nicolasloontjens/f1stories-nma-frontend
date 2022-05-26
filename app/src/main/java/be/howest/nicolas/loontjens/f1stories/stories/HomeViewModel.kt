@@ -45,8 +45,6 @@ class HomeViewModel : ViewModel() {
 
     fun likeStory(story: Story){
         val userToken: String? = getToken()
-        Thread.sleep(1000)
-
         viewModelScope.launch {
             try{
                 if (userToken != null) {

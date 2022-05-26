@@ -17,24 +17,27 @@
             android:id="@+id/addComment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
             android:text="Add comment"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listcomments"
             android:layout_width="409dp"
-            android:layout_height="681dp"
+            android:layout_height="620dp"
             android:layout_marginBottom="1dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/addComment"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             app:listDataC="@{viewModel.comments}"
-            tools:listitem="@layout/comment_view_item"
-            />
+            tools:listitem="@layout/comment_view_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

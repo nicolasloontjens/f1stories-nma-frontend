@@ -51,7 +51,6 @@ class HomeFragment : Fragment() {
         StoryListener { story ->
             viewModel.onStoryClicked(story)
             //navigate to comment
-            println("comments clicked")
             val action: NavDirections = HomeFragmentDirections.actionHomeFragmentToCommentFragment(story.storyid)
             findNavController().navigate(action)
         },
