@@ -78,6 +78,9 @@
         <action
             android:id="@+id/action_commentFragment_self"
             app:destination="@id/commentFragment" />
+        <action
+            android:id="@+id/action_commentFragment_to_updateCommentFragment"
+            app:destination="@id/updateCommentFragment" />
     </fragment>
     <fragment
         android:id="@+id/addComment2"
@@ -118,5 +121,13 @@
         <action
             android:id="@+id/action_updateStoryFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateCommentFragment"
+        android:name="be.howest.nicolas.loontjens.f1stories.comments.UpdateCommentFragment"
+        android:label="UpdateCommentFragment" >
+        <argument
+            android:name="comment"
+            app:argType="be.howest.nicolas.loontjens.f1stories.network.data.Comment" />
     </fragment>
 </navigation>

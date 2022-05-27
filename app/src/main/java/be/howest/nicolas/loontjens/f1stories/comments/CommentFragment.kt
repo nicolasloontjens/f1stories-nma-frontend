@@ -55,7 +55,8 @@ class CommentFragment : Fragment() {
     private fun editComment(comment: Comment){
         val uid = getUid()
         if(comment.userid == uid){
-
+            val action: NavDirections = CommentFragmentDirections.actionCommentFragmentToUpdateCommentFragment(comment)
+            findNavController().navigate(action)
         }else{
             Toast.makeText(context, "You can't edit someone else's comment!", Toast.LENGTH_SHORT).show()
         }
