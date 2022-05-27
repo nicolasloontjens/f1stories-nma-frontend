@@ -1,11 +1,13 @@
 package be.howest.nicolas.loontjens.f1stories.profile
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import be.howest.nicolas.loontjens.f1stories.databinding.ProfileFragmentBinding
@@ -40,17 +42,23 @@ class ProfileFragment : Fragment() {
             //edit
         ProfileStoryListener
          { story ->
-             viewModel.onStoryClicked(story)
          },
             //go to comments
         ProfileStoryListener
         { story ->
             viewModel.onStoryClicked(story)
+            val action: NavDirections = ProfileFragmentDirections.actionProfileFragmentToCommentFragment(story.storyid)
+            findNavController().navigate(action)
         },
             //share
         ProfileStoryListener
          { story ->
              viewModel.onStoryClicked(story)
+             val intent = Intent()
+             intent.action = Intent.ACTION_SEND
+             intent.putExtra(Intent.EXTRA_TEXT, "I'm loving these posts on the F1 Stories app, check it out!")
+             intent.type="text/plain"
+             startActivity(Intent.createChooser(intent,"Share to:"))
          })
         binding.profileStories.layoutManager = LinearLayoutManager(this.context)
         return binding.root
