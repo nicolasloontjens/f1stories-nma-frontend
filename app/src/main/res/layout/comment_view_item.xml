@@ -7,6 +7,12 @@
         <variable
             name="comment"
             type="be.howest.nicolas.loontjens.f1stories.network.data.Comment" />
+        <variable
+            name="clickListenerEdit"
+            type="be.howest.nicolas.loontjens.f1stories.comments.CommentListener" />
+        <variable
+            name="clickListenerDelete"
+            type="be.howest.nicolas.loontjens.f1stories.comments.CommentListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,7 +61,8 @@
                 app:layout_constraintHorizontal_bias="0.72"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/edit" />
+                app:srcCompat="@drawable/edit"
+                android:onClick="@{() -> clickListenerEdit.onClick(comment)}"/>
 
             <ImageView
                 android:id="@+id/imageView15"
@@ -66,7 +73,8 @@
                 app:layout_constraintHorizontal_bias="0.955"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/delete" />
+                app:srcCompat="@drawable/delete"
+                android:onClick="@{() -> clickListenerDelete.onClick(comment)}"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

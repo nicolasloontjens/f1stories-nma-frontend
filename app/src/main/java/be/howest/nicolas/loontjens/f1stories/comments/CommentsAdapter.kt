@@ -9,10 +9,12 @@ import be.howest.nicolas.loontjens.f1stories.comments.CommentsAdapter.CommentVie
 import be.howest.nicolas.loontjens.f1stories.databinding.CommentViewItemBinding
 import be.howest.nicolas.loontjens.f1stories.network.data.Comment
 
-class CommentsAdapter : ListAdapter<Comment, CommentViewHolder>(DiffCallback) {
+class CommentsAdapter(val clickListenerEdit: CommentListener, val clickListenerDelete: CommentListener) : ListAdapter<Comment, CommentViewHolder>(DiffCallback) {
     class CommentViewHolder(private var binding: CommentViewItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(comment: Comment){
+        fun bind(comment: Comment, clickListenerEdit: CommentListener, clickListenerDelete: CommentListener){
             binding.comment = comment
+            binding.clickListenerEdit = clickListenerEdit
+            binding.clickListenerDelete = clickListenerDelete
             binding.executePendingBindings()
         }
     }
@@ -26,7 +28,7 @@ class CommentsAdapter : ListAdapter<Comment, CommentViewHolder>(DiffCallback) {
 
     override fun onBindViewHolder(holder: CommentViewHolder, position: Int){
         val comment = getItem(position)
-        holder.bind(comment)
+        holder.bind(comment, clickListenerEdit, clickListenerDelete)
     }
 
     companion object DiffCallback:DiffUtil.ItemCallback<Comment>(){
@@ -38,5 +40,11 @@ class CommentsAdapter : ListAdapter<Comment, CommentViewHolder>(DiffCallback) {
             return oldItem.content == newItem.content
         }
 
+    }
+}
+
+class CommentListener(val clickListener: (comment: Comment) -> Unit){
+    fun onClick(comment: Comment){
+        clickListener(comment)
     }
 }

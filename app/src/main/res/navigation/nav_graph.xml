@@ -75,6 +75,9 @@
         <action
             android:id="@+id/action_commentFragment_to_addComment2"
             app:destination="@id/addComment2" />
+        <action
+            android:id="@+id/action_commentFragment_self"
+            app:destination="@id/commentFragment" />
     </fragment>
     <fragment
         android:id="@+id/addComment2"

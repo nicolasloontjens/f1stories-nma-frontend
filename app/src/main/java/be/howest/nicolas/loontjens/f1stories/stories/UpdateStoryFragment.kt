@@ -6,9 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import be.howest.nicolas.loontjens.f1stories.R
 import be.howest.nicolas.loontjens.f1stories.databinding.UpdateStoryFragmentBinding
 
 class UpdateStoryFragment : Fragment() {
@@ -35,7 +33,6 @@ class UpdateStoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             updateStoryButton.setOnClickListener {
-                Toast.makeText(context, "test!", Toast.LENGTH_SHORT).show()
                 viewModel.updateStory(updateStoryContent.text.toString())
                 viewModel.goToProfile(findNavController())
             }
