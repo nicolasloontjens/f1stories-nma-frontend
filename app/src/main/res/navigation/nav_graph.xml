@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_overviewFragment2_to_addPostFragment"
             app:destination="@id/addPostFragment" />
+        <action
+            android:id="@+id/action_overviewFragment2_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/addPostFragment"
@@ -84,5 +87,16 @@
         <action
             android:id="@+id/action_addComment2_to_commentFragment"
             app:destination="@id/commentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="be.howest.nicolas.loontjens.f1stories.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <argument
+            android:name="uid"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_profileFragment_self"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

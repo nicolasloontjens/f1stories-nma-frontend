@@ -7,11 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import be.howest.nicolas.loontjens.f1stories.R
 import be.howest.nicolas.loontjens.f1stories.addrace.ScanCodeActivity
 import be.howest.nicolas.loontjens.f1stories.database.UserApplication
+import be.howest.nicolas.loontjens.f1stories.database.UserRoomDatabase
 import be.howest.nicolas.loontjens.f1stories.databinding.OverviewFragmentBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class OverviewFragment : Fragment() {
 
@@ -49,8 +54,22 @@ class OverviewFragment : Fragment() {
             gotopost.setOnClickListener{
                 findNavController().navigate(R.id.action_overviewFragment2_to_addPostFragment)
             }
-            gotoprofile.setOnClickListener{}
+            gotoprofile.setOnClickListener{
+                val uid: Int? = getUid()
+                if(uid != null){
+                    val action: NavDirections = OverviewFragmentDirections.actionOverviewFragment2ToProfileFragment(uid)
+                    findNavController().navigate(action)
+                }
+            }
         }
     }
 
+    fun getUid(): Int? {
+        var uid: Int? = 0
+        CoroutineScope(Dispatchers.IO).launch {
+            uid = UserRoomDatabase.INSTANCE?.UserDao()?.getUid()
+        }
+        Thread.sleep(900)
+        return uid
+    }
 }

@@ -66,7 +66,6 @@ class HomeFragment : Fragment() {
         binding.storiesList.layoutManager = LinearLayoutManager(this.context)
         thebinding = binding;
         return binding.root
-        //return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

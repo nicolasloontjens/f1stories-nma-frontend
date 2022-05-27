@@ -6,7 +6,9 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import be.howest.nicolas.loontjens.f1stories.comments.CommentsAdapter
 import be.howest.nicolas.loontjens.f1stories.network.data.Comment
+import be.howest.nicolas.loontjens.f1stories.network.data.ProfileStory
 import be.howest.nicolas.loontjens.f1stories.network.data.Story
+import be.howest.nicolas.loontjens.f1stories.profile.ProfileStoryAdapter
 import be.howest.nicolas.loontjens.f1stories.stories.HomeStoryAdapter
 import coil.load
 
@@ -29,5 +31,11 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Story>?){
 @BindingAdapter("listDataC")
 fun bindRecyclerViewC(recyclerView: RecyclerView, data:List<Comment>?){
     val adapter = recyclerView.adapter as CommentsAdapter?
+    adapter?.submitList(data)
+}
+
+@BindingAdapter("listDataP")
+fun bindRecyclerViewP(recyclerView: RecyclerView, data:List<ProfileStory>?){
+    val adapter = recyclerView.adapter as ProfileStoryAdapter?
     adapter?.submitList(data)
 }
