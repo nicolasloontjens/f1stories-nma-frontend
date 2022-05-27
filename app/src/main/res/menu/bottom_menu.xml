@@ -16,4 +16,9 @@
         android:title="Create Story"
         app:showAsAction="always"
         android:icon="@drawable/createpost"/>
+    <item
+        android:id="@+id/profilebottomnav"
+        android:title="Profile"
+        app:showAsAction="always"
+        android:icon="@drawable/viewprofile"/>
 </menu>
