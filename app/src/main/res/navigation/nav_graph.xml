@@ -101,5 +101,19 @@
         <action
             android:id="@+id/action_profileFragment_to_commentFragment"
             app:destination="@id/commentFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_updateStoryFragment"
+            app:destination="@id/updateStoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateStoryFragment"
+        android:name="be.howest.nicolas.loontjens.f1stories.stories.UpdateStoryFragment"
+        android:label="UpdateStoryFragment" >
+        <argument
+            android:name="storyId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_updateStoryFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

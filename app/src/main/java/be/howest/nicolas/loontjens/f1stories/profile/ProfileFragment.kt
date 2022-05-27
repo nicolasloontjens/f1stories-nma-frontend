@@ -42,6 +42,8 @@ class ProfileFragment : Fragment() {
             //edit
         ProfileStoryListener
          { story ->
+             val action: NavDirections = ProfileFragmentDirections.actionProfileFragmentToUpdateStoryFragment(story.storyid)
+             findNavController().navigate(action)
          },
             //go to comments
         ProfileStoryListener
