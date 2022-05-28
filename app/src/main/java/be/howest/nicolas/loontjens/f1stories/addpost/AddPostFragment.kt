@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.os.FileObserver
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -75,15 +76,18 @@ class AddPostFragment : Fragment() {
     }
 
     fun addImage(){
-        val intent = Intent(Intent.ACTION_PICK)
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         intent.type = "image/*"
         startActivityForResult(intent, REQUEST_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            imageUrl = data?.data!!
+            data?.data?.let{ uri ->
+                imageUrl = uri
+            }
+        }else{
+            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 

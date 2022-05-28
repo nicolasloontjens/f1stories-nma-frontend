@@ -57,6 +57,9 @@ interface F1StoriesApiService{
     @DELETE("comments/{id}")
     suspend fun deleteComment(@Path("id") id: Int, @Header("Authorization")auth:String)
 
+    @PUT("comments/{id}")
+    suspend fun updateComment(@Path("id") id: Int, @Body comment: AddCommentBody, @Header("Authorization") auth:String)
+
     /*
     @Multipart
     @POST("stories")

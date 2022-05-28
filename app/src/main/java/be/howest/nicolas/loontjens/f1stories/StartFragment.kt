@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import be.howest.nicolas.loontjens.f1stories.database.UserApplication
 import be.howest.nicolas.loontjens.f1stories.databinding.FragmentStartBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class StartFragment : Fragment() {
 

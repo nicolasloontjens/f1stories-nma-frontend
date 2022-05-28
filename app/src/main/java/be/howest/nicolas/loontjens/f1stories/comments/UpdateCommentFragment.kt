@@ -33,7 +33,7 @@ class UpdateCommentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.showComment(binding)
         binding.updateCommentButton.setOnClickListener{
-            viewModel.updateComment(findNavController())
+            viewModel.updateComment(findNavController(), binding.updateCommentContent.text.toString())
         }
     }
 }

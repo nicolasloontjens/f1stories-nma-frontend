@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import be.howest.nicolas.loontjens.f1stories.R
 import be.howest.nicolas.loontjens.f1stories.database.UserApplication
 import be.howest.nicolas.loontjens.f1stories.databinding.LoginFragmentBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class LoginFragment : Fragment() {
 
@@ -36,7 +37,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding?.apply{
             LoginButton.setOnClickListener{
                 if(viewModel.login(loginUsername.text.toString(),loginPassword.text.toString())){

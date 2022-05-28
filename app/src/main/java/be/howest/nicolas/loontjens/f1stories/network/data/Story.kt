@@ -7,7 +7,7 @@ data class Story(
     val raceid: Int,
     val userid: Int,
     var score: Int,
-    val date: String,
+    var date: String,
     val username: String,
     val image1: String? = null,
     val image2: String? = null,

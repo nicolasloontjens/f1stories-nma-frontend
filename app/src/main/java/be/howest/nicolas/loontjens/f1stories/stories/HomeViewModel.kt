@@ -29,9 +29,13 @@ class HomeViewModel : ViewModel() {
     private fun getStoriesFromApi(){
         viewModelScope.launch{
             try{
-                var test: List<Story> = F1StoriesApi.retrofitService.getStories()
-                test = test.sortedBy { story -> story.storyid }
-                _stories.value = test
+                var list: List<Story> = F1StoriesApi.retrofitService.getStories()
+                list = list.sortedBy { story -> story.storyid }
+                for(elem in list){
+                    val datelist = elem.date.split("T")
+                    elem.date = datelist[0]
+                }
+                _stories.value = list
 
             }catch(e:Exception){
 
@@ -43,19 +47,23 @@ class HomeViewModel : ViewModel() {
         _selectedStory.value = story
     }
 
-    fun likeStory(story: Story){
+    fun likeStory(story: Story): Boolean{
         val userToken: String? = getToken()
+        var res = true
         viewModelScope.launch {
             try{
                 if (userToken != null) {
                     F1StoriesApi.retrofitService.likeStory(story.storyid, AddInteraction(1), userToken)
                 }
             }catch(e: Exception){
-
+                res = false
+                if (userToken != null) {
+                    F1StoriesApi.retrofitService.likeStory(story.storyid, AddInteraction(0), userToken)
+                }
             }
         }
-
-
+        Thread.sleep(1000)
+        return res
     }
 
     fun getToken(): String? {

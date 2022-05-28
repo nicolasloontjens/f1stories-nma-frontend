@@ -16,6 +16,7 @@ import be.howest.nicolas.loontjens.f1stories.database.UserApplication
 import be.howest.nicolas.loontjens.f1stories.databinding.FragmentStartBinding
 import be.howest.nicolas.loontjens.f1stories.databinding.RegisterFragmentBinding
 import be.howest.nicolas.loontjens.f1stories.network.F1StoriesApi
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class RegisterFragment : Fragment() {
 
@@ -41,7 +42,6 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding?.apply{
             RegisterButton.setOnClickListener{
                     viewModel.register(editTextUsername.text.toString(),editTextTextPassword.text.toString())

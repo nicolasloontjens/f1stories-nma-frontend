@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="be.howest.nicolas.loontjens.f1stories.stories.HomeFragment"
-        android:label="home_fragment"
+        android:label="Home"
         tools:layout="@layout/home_fragment" >
         <action
             android:id="@+id/action_homeFragment_to_overviewFragment2"
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/overviewFragment2"
         android:name="be.howest.nicolas.loontjens.f1stories.overview.OverviewFragment"
-        android:label="OverviewFragment" >
+        android:label="Choose an option" >
         <action
             android:id="@+id/action_overviewFragment2_to_addPostFragment"
             app:destination="@id/addPostFragment" />
@@ -64,7 +64,7 @@
     <fragment
         android:id="@+id/addPostFragment"
         android:name="be.howest.nicolas.loontjens.f1stories.addpost.AddPostFragment"
-        android:label="AddPostFragment" />
+        android:label="Create Story" />
     <fragment
         android:id="@+id/commentFragment"
         android:name="be.howest.nicolas.loontjens.f1stories.comments.CommentFragment"
@@ -85,7 +85,7 @@
     <fragment
         android:id="@+id/addComment2"
         android:name="be.howest.nicolas.loontjens.f1stories.comments.AddComment"
-        android:label="add_comment_fragment"
+        android:label="Add comment"
         tools:layout="@layout/add_comment_fragment" >
         <argument
             android:name="storyId"
@@ -97,7 +97,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="be.howest.nicolas.loontjens.f1stories.profile.ProfileFragment"
-        android:label="ProfileFragment" >
+        android:label="Profile" >
         <argument
             android:name="uid"
             app:argType="integer" />
@@ -114,7 +114,7 @@
     <fragment
         android:id="@+id/updateStoryFragment"
         android:name="be.howest.nicolas.loontjens.f1stories.stories.UpdateStoryFragment"
-        android:label="UpdateStoryFragment" >
+        android:label="Update Story" >
         <argument
             android:name="storyId"
             app:argType="integer" />
@@ -125,9 +125,12 @@
     <fragment
         android:id="@+id/updateCommentFragment"
         android:name="be.howest.nicolas.loontjens.f1stories.comments.UpdateCommentFragment"
-        android:label="UpdateCommentFragment" >
+        android:label="Update comment" >
         <argument
             android:name="comment"
             app:argType="be.howest.nicolas.loontjens.f1stories.network.data.Comment" />
+        <action
+            android:id="@+id/action_updateCommentFragment_to_commentFragment"
+            app:destination="@id/commentFragment" />
     </fragment>
 </navigation>

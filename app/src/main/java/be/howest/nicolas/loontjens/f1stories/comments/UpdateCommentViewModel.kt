@@ -4,8 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import be.howest.nicolas.loontjens.f1stories.database.UserRoomDatabase
 import be.howest.nicolas.loontjens.f1stories.databinding.UpdateCommentFragmentBinding
+import be.howest.nicolas.loontjens.f1stories.network.F1StoriesApi
+import be.howest.nicolas.loontjens.f1stories.network.data.AddCommentBody
 import be.howest.nicolas.loontjens.f1stories.network.data.Comment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -23,11 +26,17 @@ class UpdateCommentViewModel(comment: Comment) : ViewModel() {
         binding.updateCommentContent.setText(thecomment!!.content)
     }
 
-    fun updateComment(controller: NavController){
+    fun updateComment(controller: NavController, content: String){
         val token = getToken()
         viewModelScope.launch {
-
+            if (token != null) {
+                F1StoriesApi.retrofitService.updateComment(thecomment?.commentid!!,
+                    AddCommentBody(content), token)
+            }
         }
+        val action: NavDirections = UpdateCommentFragmentDirections.actionUpdateCommentFragmentToCommentFragment(
+            thecomment!!.storyid)
+        controller.navigate(action)
     }
 
     fun getToken(): String? {

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import androidx.navigation.NavDirections
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import be.howest.nicolas.loontjens.f1stories.R
 import be.howest.nicolas.loontjens.f1stories.databinding.HomeFragmentBinding
 import be.howest.nicolas.loontjens.f1stories.network.data.Story
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -44,7 +46,12 @@ class HomeFragment : Fragment() {
         binding.viewModel = viewModel
         binding.storiesList.adapter = HomeStoryAdapter(StoryListener { story ->
             viewModel.onStoryClicked(story)
-            viewModel.likeStory(story)
+            val res = viewModel.likeStory(story)
+            if(res){
+                Toast.makeText(context, "Liked post!", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(context, "Unliked post!", Toast.LENGTH_SHORT).show()
+            }
             //i cant modify the score value, so i refresh the page
             findNavController().navigate(R.id.homeFragment)
         },
