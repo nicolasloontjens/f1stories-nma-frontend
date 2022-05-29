@@ -19,7 +19,7 @@ class ProfileStoryAdapter(val clickListenerDelete: ProfileStoryListener, val cli
             binding.story = story
             binding.clickListenerComments = clickListenerComments
             binding.clickListenerDelete = clickListenerDelete
-            binding.clickListenerEdit = clickListenerEdit
+            binding.clickListenerEdit = clickListenerShare
             binding.clickListenerShare = clickListenerEdit
             binding.executePendingBindings()
         }

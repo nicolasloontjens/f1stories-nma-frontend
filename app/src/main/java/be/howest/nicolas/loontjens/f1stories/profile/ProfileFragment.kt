@@ -39,19 +39,6 @@ class ProfileFragment : Fragment() {
             viewModel.onStoryClicked(story)
             viewModel.deleteStory(story, findNavController())
         },
-            //edit
-        ProfileStoryListener
-         { story ->
-             val action: NavDirections = ProfileFragmentDirections.actionProfileFragmentToUpdateStoryFragment(story.storyid)
-             findNavController().navigate(action)
-         },
-            //go to comments
-        ProfileStoryListener
-        { story ->
-            viewModel.onStoryClicked(story)
-            val action: NavDirections = ProfileFragmentDirections.actionProfileFragmentToCommentFragment(story.storyid)
-            findNavController().navigate(action)
-        },
             //share
         ProfileStoryListener
          { story ->
@@ -61,6 +48,20 @@ class ProfileFragment : Fragment() {
              intent.putExtra(Intent.EXTRA_TEXT, "I'm loving these posts on the F1 Stories app, check it out!")
              intent.type="text/plain"
              startActivity(Intent.createChooser(intent,"Share to:"))
+         },
+            //go to comments
+        ProfileStoryListener
+        { story ->
+            viewModel.onStoryClicked(story)
+            val action: NavDirections = ProfileFragmentDirections.actionProfileFragmentToCommentFragment(story.storyid)
+            findNavController().navigate(action)
+        },
+            //edit
+        ProfileStoryListener
+         { story ->
+             viewModel.onStoryClicked(story)
+             val action: NavDirections = ProfileFragmentDirections.actionProfileFragmentToUpdateStoryFragment(story.storyid)
+             findNavController().navigate(action)
          })
         binding.profileStories.layoutManager = LinearLayoutManager(this.context)
         return binding.root

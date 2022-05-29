@@ -32,7 +32,12 @@ class ProfileViewModel(uid: Int) : ViewModel() {
     private fun getProfile(){
         viewModelScope.launch {
             val res = F1StoriesApi.retrofitService.getProfile(userid)
-            _stories.value = res.stories
+            val list = res.stories.sortedBy { story -> story.storyid }
+            for(elem in list){
+                val datelist = elem.date.split("T")
+                elem.date = datelist[0]
+            }
+            _stories.value = list
             profile = res
         }
     }
