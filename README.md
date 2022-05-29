@@ -1,4 +1,3 @@
-
 <p align="center">
 <img src="./readmeimg.png" width="500px">
 </p>
@@ -15,7 +14,7 @@ NMA that allows users to write about their experiences at Formula One Races.
 - and much more
 
 ## Description
-This PWA is compatible with both backends, the one used in the production environment is the Laravel one.
+This NMA is compatible with both backends, the one used in the production environment is the Laravel one.
 The NodeJS backend is not available online.
 
 
